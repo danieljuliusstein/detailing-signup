@@ -4,7 +4,7 @@ Single-page waitlist site for solo mobile car detailers. Static HTML — no back
 
 ## Before you deploy
 
-1. **Formspree** — configured (`mbdvgaer`). Test a real submit after deploy to confirm emails arrive in your Formspree inbox.
+1. **Formspree** — configured (`mjgqypaa`). Test a real submit after deploy to confirm emails arrive in your Formspree inbox.
 
 ## Local preview
 
