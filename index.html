@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rinse — Run your detailing business from one app. Jobs, clients, invoices, booking, and profit per job for solo mobile detailers.">
+  <title>Rinse — Founding Detailer Waitlist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #111111;
+      --surface:   #181818;
+      --card:      #1c1c1c;
+      --border:    #2a2a2a;
+      --border-hi: #333333;
+      --green:     #4caf50;
+      --green-dim: rgba(76, 175, 80, 0.12);
+      --green-glow:rgba(76, 175, 80, 0.22);
+      --t1:        #f0f0f0;
+      --t2:        #9a9a9a;
+      --t3:        #5c5c5c;
+      --red:       #e84242;
+      --font-head: 'Syne', system-ui, sans-serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --radius:    8px;
+      --radius-lg: 12px;
+      --max-w:     680px;
+      --section-x: 20px;
+      --section-y: 56px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--t1);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* subtle top gradient */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: 480px;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(76, 175, 80, 0.08), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page { position: relative; z-index: 1; }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(17, 17, 17, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--section-x);
+    }
+
+    .wordmark {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--t1);
+      letter-spacing: -0.3px;
+      text-decoration: none;
+    }
+
+    .wordmark-dot { color: var(--green); }
+
+    .nav-cta {
+      background: var(--green);
+      color: var(--bg);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      min-height: 44px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-cta:hover { background: #66bb6a; }
+    .nav-cta:active { transform: scale(0.97); }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: var(--section-y) var(--section-x);
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    section.wide { max-width: 900px; }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--t3);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding-top: 36px;
+      padding-bottom: 40px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--green-dim);
+      border: 1px solid rgba(76, 175, 80, 0.28);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    .badge-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .badge-dot { animation: pulse 2s ease-in-out infinite; }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--green-glow); }
+        50% { opacity: 0.7; box-shadow: 0 0 0 4px transparent; }
+      }
+    }
+
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(1.625rem, 4.5vw + 0.75rem, 2.75rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      color: var(--t1);
+      width: 100%;
+      max-width: min(560px, 100%);
+      margin: 0 auto 14px;
+      text-wrap: balance;
+    }
+
+    .hero h1 .h1-line {
+      display: block;
+    }
+
+    .hero h1 .h1-br { display: none; }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: clamp(1.5rem, 7.5vw, 1.75rem); }
+      .hero h1 .h1-br { display: inline; }
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--t2);
+      max-width: 440px;
+      margin: 0 auto 28px;
+      line-height: 1.55;
+    }
+
+    /* ── FORM ── */
+    .form-wrap { max-width: 420px; margin: 0 auto; }
+
+    .form-label {
+      text-align: left;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--t2);
+      margin-bottom: 7px;
+      display: block;
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    @media (min-width: 480px) {
+      .form-row { flex-direction: row; }
+    }
+
+    .form-input {
+      flex: 1;
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border-hi);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      min-height: 44px;
+      font-size: 16px;
+      color: var(--t1);
+      font-family: var(--font-body);
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .form-input::placeholder { color: var(--t3); }
+
+    .form-input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px var(--green-dim);
+    }
+
+    .form-input.error {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(232, 66, 66, 0.12);
+    }
+
+    .form-error {
+      font-size: 12px;
+      color: var(--red);
+      margin-top: 6px;
+      text-align: left;
+      display: none;
+    }
+
+    .form-error.visible { display: block; }
+
+    .form-btn {
+      background: var(--green);
+      color: var(--bg);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 12px 20px;
+      min-height: 44px;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .form-btn:hover { background: #66bb6a; }
+    .form-btn:active { transform: scale(0.97); }
+    .form-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    @media (min-width: 480px) {
+      .form-btn { width: auto; }
+    }
+
+    @media (max-width: 479px) {
+      .form-btn { width: 100%; }
+    }
+
+    .form-micro {
+      margin-top: 10px;
+      font-size: 11.5px;
+      color: var(--t3);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .form-micro strong { color: var(--t2); font-weight: 500; }
+
+    .success-box {
+      display: none;
+      background: var(--card);
+      border: 1px solid rgba(76, 175, 80, 0.28);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      text-align: center;
+      animation: fadeUp 0.4s ease;
+    }
+
+    .success-box.visible { display: block; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .success-box .check {
+      color: var(--green);
+      font-size: 20px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .success-box p {
+      font-size: 15px;
+      color: var(--t1);
+      font-weight: 500;
+    }
+
+    .success-box .sub {
+      font-size: 13px;
+      color: var(--t2);
+      font-weight: 400;
+      margin-top: 4px;
+    }
+
+    /* ── FOUNDING BADGE STRIP ── */
+    .founding-badge-section {
+      text-align: center;
+      padding-top: 0;
+      padding-bottom: 32px;
+    }
+
+    .founding-badge-large {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--t2);
+    }
+
+    .founding-badge-large strong { color: var(--green); font-weight: 600; }
+
+    /* ── PROBLEM / SOLUTION ── */
+    .ps-section {
+      border-top: 1px solid var(--border);
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+
+    .ps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 640px) {
+      .ps-grid {
+        grid-template-columns: 1fr 40px 1fr;
+        align-items: start;
+      }
+    }
+
+    .ps-col-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 12px;
+      font-family: var(--font-body);
+    }
+
+    .ps-col-label.muted { color: var(--t3); }
+    .ps-col-label.green { color: var(--green); }
+
+    .ps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .ps-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .ps-item.prob { color: var(--t2); }
+    .ps-item.sol {
+      color: var(--t1);
+      border-color: rgba(76, 175, 80, 0.18);
+    }
+
+    .ps-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      border-radius: 50%;
+      border: 1.5px solid var(--t3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ps-icon.g {
+      border-color: var(--green);
+      background: var(--green-dim);
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .ps-icon-dash {
+      display: block;
+      width: 7px;
+      height: 1.5px;
+      background: var(--t3);
+    }
+
+    .ps-mid {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding-top: 28px;
+    }
+
+    @media (min-width: 640px) {
+      .ps-mid { display: flex; }
+    }
+
+    .arrow-ring {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--green-dim);
+      border: 1px solid rgba(76, 175, 80, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green);
+      font-size: 14px;
+    }
+
+    /* ── FOUNDING OFFER ── */
+    .founding {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      max-width: none;
+      padding: 48px var(--section-x);
+    }
+
+    .founding-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .founding-chip {
+      display: inline-block;
+      background: var(--green);
+      color: var(--bg);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      border-radius: 100px;
+      padding: 5px 14px;
+      margin-bottom: 14px;
+    }
+
+    .founding h2 {
+      font-family: var(--font-head);
+      font-size: clamp(22px, 5vw, 28px);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      color: var(--t1);
+      margin-bottom: 12px;
+    }
+
+    .founding-body {
+      font-size: 15px;
+      color: var(--t2);
+      line-height: 1.6;
+      max-width: 500px;
+      margin: 0 auto 16px;
+    }
+
+    .founding-exchange {
+      display: inline-block;
+      background: var(--card);
+      border: 1px solid var(--border-hi);
+      border-radius: var(--radius);
+      padding: 12px 18px;
+      font-size: 14px;
+      color: var(--t2);
+      margin-bottom: 12px;
+      text-align: left;
+      max-width: 100%;
+    }
+
+    .founding-exchange strong { color: var(--t1); }
+
+    .founding-fine {
+      font-size: 12px;
+      color: var(--t3);
+      line-height: 1.55;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ── WHO IT'S FOR ── */
+    .who-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 560px) {
+      .who-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .who-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px 20px;
+    }
+
+    .who-card.yes { border-color: rgba(76, 175, 80, 0.2); }
+    .who-card.no { border-color: var(--border); }
+
+    .who-card h3 {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      letter-spacing: -0.2px;
+    }
+
+    .who-card.yes h3 { color: var(--green); }
+    .who-card.no h3 { color: var(--t3); }
+
+    .who-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .who-list li {
+      font-size: 14px;
+      color: var(--t2);
+      line-height: 1.45;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .who-card.yes .who-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .who-card.no .who-list li::before {
+      content: '×';
+      position: absolute;
+      left: 0;
+      color: var(--t3);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* ── FAQ ── */
+    .faq-section h2 {
+      font-family: var(--font-head);
+      font-size: clamp(22px, 5vw, 28px);
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--t1);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      text-align: left;
+      padding: 16px 44px 16px 16px;
+      cursor: pointer;
+      position: relative;
+      line-height: 1.4;
+      min-height: 44px;
+    }
+
+    .faq-question:hover { color: var(--green); }
+
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: var(--t3);
+      font-weight: 400;
+      transition: transform 0.2s;
+    }
+
+    .faq-item.open .faq-question::after {
+      content: '−';
+      color: var(--green);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 16px 16px;
+      font-size: 14px;
+      color: var(--t2);
+      line-height: 1.6;
+    }
+
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ── BOTTOM CTA ── */
+    .cta-bottom {
+      text-align: center;
+      border-top: 1px solid var(--border);
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+
+    .cta-bottom h2 {
+      font-family: var(--font-head);
+      font-size: clamp(20px, 5vw, 26px);
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin-bottom: 8px;
+    }
+
+    .cta-bottom p {
+      font-size: 15px;
+      color: var(--t2);
+      margin-bottom: 24px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 20px var(--section-x);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+    }
+
+    @media (min-width: 480px) {
+      .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+    }
+
+    .f-left {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .f-wm {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--t2);
+    }
+
+    .f-link {
+      font-size: 12px;
+      color: var(--t3);
+      text-decoration: none;
+    }
+
+    .f-link:hover { color: var(--t2); }
+
+    .f-copy { font-size: 12px; color: var(--t3); }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- 1. Logo / Nav -->
+    <nav class="nav">
+      <a href="#" class="wordmark">Rinse<span class="wordmark-dot">.</span></a>
+      <a href="#waitlist" class="nav-cta">Join the waitlist</a>
+    </nav>
+
+    <!-- 2. Hero -->
+    <section class="hero" id="waitlist">
+      <h1>
+        <span class="h1-line">Run your detailing<br class="h1-br"> business</span>
+        <span class="h1-line">from <em>one app.</em></span>
+      </h1>
+      <p class="hero-sub">Jobs, clients, invoices, booking, and profit per job — built for solo mobile detailers.</p>
+
+      <div class="form-wrap" id="hero-form-wrap">
+        <form id="waitlist-form" action="https://formspree.io/f/mbdvgaer" method="POST" novalidate>
+          <label class="form-label" for="email">Email address</label>
+          <div class="form-row">
+            <input
+              class="form-input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+              autocomplete="email"
+              inputmode="email"
+            >
+            <button class="form-btn" type="submit">Join the waitlist</button>
+          </div>
+          <p class="form-error" id="form-error" role="alert"></p>
+          <p class="form-micro">Founding Detailer program · <strong>First 20 get Pro free for life</strong> · Solo operators only</p>
+        </form>
+      </div>
+
+      <div class="success-box" id="success-box" role="status" aria-live="polite">
+        <span class="check" aria-hidden="true">✓</span>
+        <p>You're on the list.</p>
+        <p class="sub">We'll email you when your batch opens.</p>
+      </div>
+    </section>
+
+    <!-- 3. Founding badge -->
+    <section class="founding-badge-section">
+      <div class="founding-badge-large">
+        <span class="badge-dot" aria-hidden="true"></span>
+        <strong>Founding Detailer</strong> — 20 spots · Pro free for life
+      </div>
+    </section>
+
+    <!-- 4 & 5. Problem / Solution -->
+    <section class="ps-section wide">
+      <p class="eyebrow">The problem &amp; the fix</p>
+      <div class="ps-grid">
+        <div>
+          <p class="ps-col-label muted">Right now</p>
+          <ul class="ps-list">
+            <li class="ps-item prob">
+              <span class="ps-icon" aria-hidden="true"><span class="ps-icon-dash"></span></span>
+              Bookings scattered across DMs, texts, and your calendar
+            </li>
+            <li class="ps-item prob">
+              <span class="ps-icon" aria-hidden="true"><span class="ps-icon-dash"></span></span>
+              No clear picture of which jobs actually made money
+            </li>
+            <li class="ps-item prob">
+              <span class="ps-icon" aria-hidden="true"><span class="ps-icon-dash"></span></span>
+              Clients get invoices one place, photos another — feels unprofessional
+            </li>
+          </ul>
+        </div>
+        <div class="ps-mid" aria-hidden="true">
+          <div class="arrow-ring">→</div>
+        </div>
+        <div>
+          <p class="ps-col-label green">With Rinse</p>
+          <ul class="ps-list">
+            <li class="ps-item sol">
+              <span class="ps-icon g" aria-hidden="true">✓</span>
+              Online booking that lands straight in your job list
+            </li>
+            <li class="ps-item sol">
+              <span class="ps-icon g" aria-hidden="true">✓</span>
+              Profit per job — not just revenue
+            </li>
+            <li class="ps-item sol">
+              <span class="ps-icon g" aria-hidden="true">✓</span>
+              Client portal with before/after photos and invoices
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Founding offer -->
+    <section class="founding" aria-labelledby="founding-heading">
+      <div class="founding-inner">
+        <span class="founding-chip">Founding Detailer program</span>
+        <h2 id="founding-heading">Pro free for life. For the first 20.</h2>
+        <p class="founding-body">Founding members get Pro free forever — booking site, client portal, full job tracking, and profit analytics.</p>
+        <div class="founding-exchange">
+          <strong>In exchange:</strong> Use it on real jobs, give honest feedback, and share a testimonial if you love it.
+        </div>
+        <p class="founding-fine">Must complete at least 3 jobs in your first 30 days to keep founding status. SMS and payment processing may become paid add-ons later — core job management stays free for founding members.</p>
+      </div>
+    </section>
+
+    <!-- 7. Who it's for / not for -->
+    <section class="wide">
+      <p class="eyebrow">Is this for you?</p>
+      <div class="who-grid">
+        <div class="who-card yes">
+          <h3>Built for you if…</h3>
+          <ul class="who-list">
+            <li>You're a solo mobile detailer — you go to the client</li>
+            <li>You juggle bookings across texts, DMs, and calendar apps</li>
+            <li>You want to know profit per job, not just what you charged</li>
+            <li>You're ready to run real jobs through the app and give feedback</li>
+          </ul>
+        </div>
+        <div class="who-card no">
+          <h3>Not for you if…</h3>
+          <ul class="who-list">
+            <li>You run a shop with multiple bays and a front desk team</li>
+            <li>You need enterprise fleet contracts or dealership workflows</li>
+            <li>You want a free tool with zero commitment or feedback</li>
+            <li>You're looking for a consumer car-wash booking app</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FAQ -->
+    <section class="faq-section">
+      <h2>Questions</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            What is Rinse?
+          </button>
+          <div class="faq-answer" hidden>
+            Rinse is a business app for solo mobile detailers — jobs, clients, invoices, online booking, and profit tracking in one place. No more stitching together texts, calendars, and spreadsheets.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            What does "Pro free for life" include?
+          </button>
+          <div class="faq-answer" hidden>
+            Founding Detailers get the full Pro plan forever: your booking page, client portal with photos, job tracking, invoicing, and profit analytics. No monthly fee — ever — as long as you stay an active founding member.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            When will I get access?
+          </button>
+          <div class="faq-answer" hidden>
+            We're onboarding in small batches so we can support every founding detailer properly. Join the waitlist and we'll email you when your batch opens — first come, first served within the 20 founding spots.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            What do I need to do to keep my founding spot?
+          </button>
+          <div class="faq-answer" hidden>
+            Complete at least 3 real jobs in your first 30 days, use the app honestly on those jobs, and share feedback when we ask. That's it. We want operators who'll actually use it — not signups sitting idle.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            Will SMS or payments cost extra later?
+          </button>
+          <div class="faq-answer" hidden>
+            Possibly. SMS reminders and payment processing have real per-use costs, so those may become paid add-ons down the road. Your core Pro features — jobs, booking, portal, profit tracking — stay free for life as a founding member.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 9. Second email CTA -->
+    <section class="cta-bottom" id="waitlist-bottom">
+      <h2>Ready to claim your spot?</h2>
+      <p>20 founding spots. Pro free for life. Solo operators only.</p>
+
+      <div class="form-wrap" id="bottom-form-wrap">
+        <form id="waitlist-form-bottom" action="https://formspree.io/f/mbdvgaer" method="POST" novalidate>
+          <label class="form-label" for="email-bottom">Email address</label>
+          <div class="form-row">
+            <input
+              class="form-input"
+              type="email"
+              id="email-bottom"
+              name="email"
+              placeholder="you@example.com"
+              required
+              autocomplete="email"
+              inputmode="email"
+            >
+            <button class="form-btn" type="submit">Join the waitlist</button>
+          </div>
+          <p class="form-error" id="form-error-bottom" role="alert"></p>
+        </form>
+      </div>
+
+      <div class="success-box" id="success-box-bottom" role="status" aria-live="polite">
+        <span class="check" aria-hidden="true">✓</span>
+        <p>You're on the list.</p>
+        <p class="sub">We'll email you when your batch opens.</p>
+      </div>
+    </section>
+
+    <!-- 10. Footer -->
+    <footer class="footer">
+      <div class="f-left">
+        <span class="f-wm">Rinse<span class="wordmark-dot">.</span></span>
+        <a class="f-link" href="privacy.html">Privacy</a>
+      </div>
+      <span class="f-copy">© 2026 Rinse</span>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      function validateEmail(value) {
+        if (!value.trim()) return 'Please enter your email address.';
+        if (!EMAIL_RE.test(value.trim())) return 'Please enter a valid email address.';
+        return '';
+      }
+
+      function setupForm(formId, errorId, formWrapId, successId) {
+        var form = document.getElementById(formId);
+        var errorEl = document.getElementById(errorId);
+        var formWrap = document.getElementById(formWrapId);
+        var successBox = document.getElementById(successId);
+        var input = form.querySelector('input[type="email"]');
+        var btn = form.querySelector('button[type="submit"]');
+
+        function showError(msg) {
+          input.classList.add('error');
+          errorEl.textContent = msg;
+          errorEl.classList.add('visible');
+        }
+
+        function clearError() {
+          input.classList.remove('error');
+          errorEl.textContent = '';
+          errorEl.classList.remove('visible');
+        }
+
+        function showSuccess() {
+          formWrap.style.display = 'none';
+          successBox.classList.add('visible');
+          // Sync both forms if user submits either one
+          document.getElementById('hero-form-wrap').style.display = 'none';
+          document.getElementById('bottom-form-wrap').style.display = 'none';
+          document.getElementById('success-box').classList.add('visible');
+          document.getElementById('success-box-bottom').classList.add('visible');
+        }
+
+        input.addEventListener('input', clearError);
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          clearError();
+
+          var err = validateEmail(input.value);
+          if (err) {
+            showError(err);
+            input.focus();
+            return;
+          }
+
+          btn.disabled = true;
+          btn.textContent = 'Joining…';
+
+          fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' }
+          })
+            .then(function (res) {
+              if (res.ok) {
+                showSuccess();
+              } else {
+                return res.json().then(function (data) {
+                  throw new Error(data.error || 'Something went wrong. Please try again.');
+                });
+              }
+            })
+            .catch(function (err) {
+              showError(err.message || 'Something went wrong. Please try again.');
+              btn.disabled = false;
+              btn.textContent = 'Join the waitlist';
+            });
+        });
+      }
+
+      setupForm('waitlist-form', 'form-error', 'hero-form-wrap', 'success-box');
+      setupForm('waitlist-form-bottom', 'form-error-bottom', 'bottom-form-wrap', 'success-box-bottom');
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-item').forEach(function (item) {
+        var btn = item.querySelector('.faq-question');
+        var answer = item.querySelector('.faq-answer');
+
+        btn.addEventListener('click', function () {
+          var isOpen = item.classList.contains('open');
+
+          document.querySelectorAll('.faq-item').forEach(function (other) {
+            other.classList.remove('open');
+            other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            other.querySelector('.faq-answer').hidden = true;
+          });
+
+          if (!isOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+            answer.hidden = false;
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
