@@ -37,8 +37,8 @@ export default function PrivacyPage() {
       <h2 className="mb-2.5 mt-7 font-[family-name:var(--font-syne)] text-[17px] font-bold text-[#f0f0f0]">How we store it</h2>
       <p className="mb-3 text-[15px] leading-relaxed text-[#9a9a9a]">
         Form submissions are processed by{' '}
-        <a href="https://formspree.io" target="_blank" rel="noopener noreferrer" className="text-[#4caf50] hover:text-[#66bb6a]">
-          Formspree
+        <a href="https://web3forms.com" target="_blank" rel="noopener noreferrer" className="text-[#4caf50] hover:text-[#66bb6a]">
+          Web3Forms
         </a>
         , a third-party form service. Their privacy practices are governed by their own policy.
       </p>

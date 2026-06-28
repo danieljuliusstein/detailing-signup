@@ -1132,7 +1132,9 @@
       <p class="hero-sub">Jobs, clients, invoices, booking, and profit per job — built by a mobile detailer, for mobile detailers.</p>
 
       <div class="form-wrap" id="hero-form-wrap">
-        <form id="waitlist-form" action="https://formspree.io/f/mjgqypaa" method="POST" novalidate>
+        <form id="waitlist-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="0d87c367-7eb8-4611-8823-475f51798222">
+          <input type="hidden" name="subject" value="New Rinse waitlist signup">
           <label class="form-label" for="email">Email address</label>
           <div class="form-row">
             <input
@@ -1477,7 +1479,9 @@
       <p>First 20 free for life · next 100 get $10 off/mo for life.</p>
 
       <div class="form-wrap" id="bottom-form-wrap">
-        <form id="waitlist-form-bottom" action="https://formspree.io/f/mjgqypaa" method="POST" novalidate>
+        <form id="waitlist-form-bottom" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="0d87c367-7eb8-4611-8823-475f51798222">
+          <input type="hidden" name="subject" value="New Rinse waitlist signup">
           <label class="form-label" for="email-bottom">Email address</label>
           <div class="form-row">
             <input
@@ -1600,13 +1604,13 @@
             headers: { Accept: 'application/json' }
           })
             .then(function (res) {
-              if (res.ok) {
-                showSuccess();
-              } else {
-                return res.json().then(function (data) {
-                  throw new Error(data.error || 'Something went wrong. Please try again.');
-                });
-              }
+              return res.json().then(function (data) {
+                if (data.success) {
+                  showSuccess();
+                } else {
+                  throw new Error(data.message || 'Something went wrong. Please try again.');
+                }
+              });
             })
             .catch(function (err) {
               showError(err.message || 'Something went wrong. Please try again.');

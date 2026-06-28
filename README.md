@@ -4,7 +4,7 @@ Waitlist site for mobile car detailers.
 
 ## Before you deploy
 
-1. **Formspree** — configured (`mjgqypaa`). Test a real submit after deploy to confirm emails arrive in your Formspree inbox.
+1. **Web3Forms** — configured (`Detailing App SignUp`). Test a real submit after deploy to confirm emails arrive at danieljuliusstein@gmail.com.
 
 ## Local preview
 

@@ -3,14 +3,14 @@
 import { FormEvent, useState } from 'react';
 import { useWaitlist } from './WaitlistProvider';
 
-const FORMSPREE_URL = 'https://formspree.io/f/mjgqypaa';
+const WEB3FORMS_URL = 'https://api.web3forms.com/submit';
+const WEB3FORMS_ACCESS_KEY = '0d87c367-7eb8-4611-8823-475f51798222';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function parseFormspreeError(data: unknown): string {
+function parseWeb3FormsError(data: unknown): string {
   if (!data || typeof data !== 'object') return 'Something went wrong. Please try again.';
-  const record = data as { error?: string; errors?: Array<{ message?: string }> };
-  if (record.errors?.[0]?.message) return record.errors[0].message;
-  if (record.error) return record.error;
+  const record = data as { message?: string };
+  if (record.message) return record.message;
   return 'Something went wrong. Please try again.';
 }
 
@@ -52,20 +52,24 @@ export default function WaitlistForm({ inputId, showMicrocopy = false }: Waitlis
 
     try {
       const trimmed = email.trim();
-      const body = new FormData();
-      body.append('email', trimmed);
-      body.append('_subject', 'New Rinse waitlist signup');
-      body.append('_replyto', trimmed);
 
-      const res = await fetch(FORMSPREE_URL, {
+      const res = await fetch(WEB3FORMS_URL, {
         method: 'POST',
-        body,
-        headers: { Accept: 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          email: trimmed,
+          subject: 'New Rinse waitlist signup',
+        }),
       });
 
-      if (!res.ok) {
-        const data = await res.json().catch(() => null);
-        throw new Error(parseFormspreeError(data));
+      const data = await res.json().catch(() => null);
+
+      if (!res.ok || !data || data.success !== true) {
+        throw new Error(parseWeb3FormsError(data));
       }
 
       setSubmitted(true);
