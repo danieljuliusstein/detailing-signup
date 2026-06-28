@@ -1,6 +1,6 @@
 # Rinse — Founding Waitlist
 
-Single-page waitlist site for solo mobile car detailers. Static HTML — no backend, no build step.
+Waitlist site for mobile car detailers.
 
 ## Before you deploy
 
@@ -57,7 +57,28 @@ npx netlify deploy --prod --dir .
 |------|---------|
 | `index.html` | Waitlist landing page (CSS + JS inline) |
 | `privacy.html` | Minimal privacy policy for email collection |
+| `assets/` | Product screenshots + hero poster (from `detailing-app` export) |
 | `README.md` | This file |
+
+## Marketing assets
+
+Screenshots are generated from the operator app:
+
+```bash
+cd ../Detailing/detailing-app
+npm run seed:demo          # refresh demo data (set APP_URL=https://rinsehq.com for prod)
+npm run capture:screenshots
+npm run export:waitlist-assets
+cp marketing/export/waitlist/* ../detailingSignUP/assets/
+```
+
+| Asset | Source |
+|-------|--------|
+| `assets/hero-poster.webp` | Home screen screenshot |
+| `assets/hero-demo.mp4` | Product demo video (manual record) |
+| `assets/feature-*.webp` | Feature carousel shots |
+
+Re-deploy after updating assets.
 
 ## Form behavior
 

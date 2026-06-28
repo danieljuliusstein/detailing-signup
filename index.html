@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Rinse — Run your detailing business from one app. Jobs, clients, invoices, booking, and profit per job for solo mobile detailers.">
+  <meta name="description" content="Rinse — Run your detailing business from one app. Built by a mobile detailer. Jobs, clients, invoices, booking, and profit per job.">
   <title>Rinse — Founding Detailer Waitlist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -467,6 +467,119 @@
       font-size: 14px;
     }
 
+    /* ── CRM COMPARISON ── */
+    .compare-section {
+      max-width: var(--max-w-wide);
+      margin: 0 auto;
+      padding: 48px var(--section-x);
+      border-top: 1px solid var(--border);
+    }
+
+    .compare-section h2 {
+      font-family: var(--font-head);
+      font-size: clamp(22px, 5vw, 28px);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      color: var(--t1);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .compare-intro {
+      font-size: 15px;
+      color: var(--t2);
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 32px;
+      text-align: center;
+    }
+
+    .compare-table {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .compare-head {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    @media (min-width: 640px) {
+      .compare-head { display: grid; }
+    }
+
+    .compare-head span {
+      padding: 12px 16px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--t3);
+    }
+
+    .compare-head span:last-child {
+      border-left: 1px solid var(--border);
+      color: var(--green);
+    }
+
+    .compare-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .compare-row:last-child { border-bottom: none; }
+
+    @media (min-width: 640px) {
+      .compare-row { grid-template-columns: 1fr 1fr; }
+    }
+
+    .compare-cell {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px 16px;
+      font-size: 14px;
+      line-height: 1.45;
+      background: var(--card);
+    }
+
+    @media (min-width: 640px) {
+      .compare-cell:first-child { border-right: 1px solid var(--border); }
+    }
+
+    .compare-cell.other { color: var(--t2); }
+    .compare-cell.rinse { color: var(--t1); }
+
+    .compare-cell .mark {
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-weight: 600;
+    }
+
+    .compare-cell.other .mark { color: var(--t3); }
+    .compare-cell.rinse .mark { color: var(--green); }
+
+    .compare-label {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    @media (min-width: 640px) {
+      .compare-label { display: none; }
+    }
+
+    .compare-cell.other .compare-label { color: var(--t3); }
+    .compare-cell.rinse .compare-label { color: var(--green); }
+
     /* ── FOUNDING OFFER ── */
     .founding {
       background: var(--surface);
@@ -533,6 +646,71 @@
       line-height: 1.55;
       max-width: 480px;
       margin: 0 auto;
+    }
+
+    /* ── BUILDER / OPERATOR SECTION ── */
+    .builder-section {
+      max-width: var(--max-w-wide);
+      margin: 0 auto;
+      padding: 56px var(--section-x);
+    }
+
+    .builder-section h2 {
+      font-family: var(--font-head);
+      font-size: clamp(22px, 5vw, 28px);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      color: var(--t1);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .builder-intro {
+      font-size: 15px;
+      color: var(--t2);
+      line-height: 1.6;
+      max-width: 540px;
+      margin: 0 auto 32px;
+      text-align: center;
+    }
+
+    .builder-intro strong { color: var(--t1); font-weight: 500; }
+
+    .builder-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .builder-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .builder-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px 20px;
+      text-align: center;
+    }
+
+    @media (min-width: 640px) {
+      .builder-card { text-align: left; }
+    }
+
+    .builder-card h3 {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .builder-card p {
+      font-size: 14px;
+      color: var(--t2);
+      line-height: 1.55;
     }
 
     /* ── WHO IT'S FOR ── */
@@ -690,6 +868,102 @@
       margin-bottom: 24px;
     }
 
+    /* ── ABOUT OWNER ── */
+    .owner-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 56px var(--section-x);
+      max-width: none;
+    }
+
+    .owner-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    @media (min-width: 640px) {
+      .owner-inner {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 40px;
+      }
+    }
+
+    .owner-photo-wrap {
+      width: 144px;
+      height: 144px;
+      flex-shrink: 0;
+      border-radius: 16px;
+      border: 1px solid rgba(76, 175, 80, 0.3);
+      background: var(--card);
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+      position: relative;
+    }
+
+    .owner-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .owner-photo-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-head);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--green);
+      background: radial-gradient(circle at 30% 20%, rgba(76, 175, 80, 0.15), transparent 60%);
+    }
+
+    .owner-photo-wrap.no-photo img { display: none; }
+    .owner-photo-wrap.no-photo .owner-photo-fallback { display: flex; }
+
+    .owner-copy {
+      text-align: center;
+    }
+
+    @media (min-width: 640px) {
+      .owner-copy { text-align: left; }
+    }
+
+    .owner-copy h2 {
+      font-family: var(--font-head);
+      font-size: clamp(22px, 5vw, 26px);
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      line-height: 1.15;
+      color: var(--t1);
+      margin-bottom: 16px;
+    }
+
+    .owner-copy p {
+      font-size: 15px;
+      color: var(--t2);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .owner-copy p:last-of-type { margin-bottom: 0; }
+
+    .owner-copy strong { color: var(--t1); font-weight: 500; }
+
+    .owner-byline {
+      margin-top: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--t3);
+    }
+
     /* ── FOOTER ── */
     .footer {
       border-top: 1px solid var(--border);
@@ -735,6 +1009,109 @@
     .f-link:hover { color: var(--t2); }
 
     .f-copy { font-size: 12px; color: var(--t3); }
+
+    /* ── PRODUCT PREVIEW ── */
+    .preview-section {
+      padding: var(--section-y) var(--section-x);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .preview-section .eyebrow { margin-bottom: 12px; }
+
+    .preview-headline {
+      font-family: var(--font-head);
+      font-size: clamp(22px, 5vw, 28px);
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .phone-frame {
+      max-width: 280px;
+      margin: 0 auto;
+      border-radius: 28px;
+      border: 2px solid var(--border-hi);
+      background: var(--card);
+      padding: 10px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+    }
+
+    .phone-frame__screen {
+      border-radius: 20px;
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 390 / 844;
+    }
+
+    .phone-frame__screen video,
+    .phone-frame__screen img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .features-section {
+      padding: 0 var(--section-x) var(--section-y);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .features-scroll {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .features-scroll::-webkit-scrollbar { height: 4px; }
+    .features-scroll::-webkit-scrollbar-thumb { background: var(--border-hi); border-radius: 2px; }
+
+    .feature-card {
+      flex: 0 0 200px;
+      scroll-snap-align: start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .feature-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 390 / 844;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .feature-card figcaption {
+      padding: 10px 12px 12px;
+      font-size: 12px;
+      color: var(--t2);
+      line-height: 1.4;
+    }
+
+    @media (min-width: 720px) {
+      .features-scroll {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow: visible;
+      }
+      .feature-card { flex: unset; }
+      .features-scroll .feature-card:nth-child(4),
+      .features-scroll .feature-card:nth-child(5) {
+        grid-column: span 1;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .features-scroll { grid-template-columns: repeat(5, 1fr); }
+    }
   </style>
 </head>
 <body>
@@ -752,7 +1129,7 @@
         <span class="h1-line">Run your detailing<br class="h1-br"> business</span>
         <span class="h1-line">from <em>one app.</em></span>
       </h1>
-      <p class="hero-sub">Jobs, clients, invoices, booking, and profit per job — built for solo mobile detailers.</p>
+      <p class="hero-sub">Jobs, clients, invoices, booking, and profit per job — built by a mobile detailer, for mobile detailers.</p>
 
       <div class="form-wrap" id="hero-form-wrap">
         <form id="waitlist-form" action="https://formspree.io/f/mjgqypaa" method="POST" novalidate>
@@ -771,7 +1148,7 @@
             <button class="form-btn" type="submit">Join the waitlist</button>
           </div>
           <p class="form-error" id="form-error" role="alert"></p>
-          <p class="form-micro">Founding Detailer program · <strong>First 20 get Pro free for life</strong> · Solo operators only</p>
+          <p class="form-micro">Early access · <strong>First 20 free for life</strong> · <strong>Next 100 get $10 off/mo for life</strong></p>
         </form>
       </div>
 
@@ -782,11 +1159,70 @@
       </div>
     </section>
 
+    <!-- 2b. Product preview -->
+    <section class="preview-section wide" id="preview" aria-labelledby="preview-heading">
+      <p class="eyebrow">See it in action</p>
+      <h2 class="preview-headline" id="preview-heading">Your day, your jobs, one screen</h2>
+      <div class="phone-frame">
+        <div class="phone-frame__screen">
+          <video
+            id="hero-demo-video"
+            poster="assets/hero-poster.webp"
+            muted
+            loop
+            playsinline
+            autoplay
+            width="390"
+            height="844"
+          >
+            <source src="assets/hero-demo.mp4" type="video/mp4">
+          </video>
+          <img
+            id="hero-demo-fallback"
+            src="assets/hero-poster.webp"
+            alt="Rinse app home screen showing today's jobs"
+            width="390"
+            height="844"
+            loading="lazy"
+            hidden
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- 2c. Feature screenshots -->
+    <section class="features-section wide" id="features" aria-labelledby="features-heading">
+      <p class="eyebrow">Built for detailers</p>
+      <h2 class="preview-headline" id="features-heading" style="margin-bottom: 20px;">Everything in one place</h2>
+      <div class="features-scroll">
+        <figure class="feature-card">
+          <img src="assets/feature-home.webp" alt="Home dashboard with week strip" width="390" height="844" loading="lazy">
+          <figcaption>See your day at a glance</figcaption>
+        </figure>
+        <figure class="feature-card">
+          <img src="assets/feature-jobs.webp" alt="Jobs list" width="390" height="844" loading="lazy">
+          <figcaption>Track every job to paid</figcaption>
+        </figure>
+        <figure class="feature-card">
+          <img src="assets/feature-photos.webp" alt="Before and after job photos" width="390" height="844" loading="lazy">
+          <figcaption>Before &amp; after photos</figcaption>
+        </figure>
+        <figure class="feature-card">
+          <img src="assets/feature-booking.webp" alt="Online booking page" width="390" height="844" loading="lazy">
+          <figcaption>Clients book online</figcaption>
+        </figure>
+        <figure class="feature-card">
+          <img src="assets/feature-portal.webp" alt="Client portal" width="390" height="844" loading="lazy" onerror="this.closest('.feature-card').style.display='none'">
+          <figcaption>Share invoices &amp; photos</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <!-- 3. Founding badge -->
     <section class="founding-badge-section">
       <div class="founding-badge-large">
         <span class="badge-dot" aria-hidden="true"></span>
-        <strong>Founding Detailer</strong> — 20 spots · Pro free for life
+        <strong>Early access</strong> — 20 free for life · next 100 get $10 off/mo for life
       </div>
     </section>
 
@@ -834,16 +1270,100 @@
       </div>
     </section>
 
+    <!-- 5b. CRM comparison -->
+    <section class="compare-section wide" aria-labelledby="compare-heading">
+      <p class="eyebrow">Why not another CRM?</p>
+      <h2 id="compare-heading">Generic CRMs weren't built for your market.</h2>
+      <p class="compare-intro">Most tools are built for office sales teams or every trade under the sun. Rinse is built for how mobile detailers actually work — on the driveway, vehicle by vehicle.</p>
+      <div class="compare-table">
+        <div class="compare-head">
+          <span>Typical CRMs</span>
+          <span>Rinse</span>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell other">
+            <span class="mark" aria-hidden="true">×</span>
+            <span><span class="compare-label">Typical CRMs</span>Built for sales teams or broad home services — not a mobile detailing day</span>
+          </div>
+          <div class="compare-cell rinse">
+            <span class="mark" aria-hidden="true">✓</span>
+            <span><span class="compare-label">Rinse</span>End-to-end for detailers: lead → quote → job → invoice → client portal</span>
+          </div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell other">
+            <span class="mark" aria-hidden="true">×</span>
+            <span><span class="compare-label">Typical CRMs</span>Calendar, texts, spreadsheets, and invoicing in separate tools</span>
+          </div>
+          <div class="compare-cell rinse">
+            <span class="mark" aria-hidden="true">✓</span>
+            <span><span class="compare-label">Rinse</span>One app for your schedule, clients, jobs, and payments</span>
+          </div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell other">
+            <span class="mark" aria-hidden="true">×</span>
+            <span><span class="compare-label">Typical CRMs</span>Shows what you charged — not what you kept after products and time</span>
+          </div>
+          <div class="compare-cell rinse">
+            <span class="mark" aria-hidden="true">✓</span>
+            <span><span class="compare-label">Rinse</span>Profit per job so you know which work is actually worth it</span>
+          </div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell other">
+            <span class="mark" aria-hidden="true">×</span>
+            <span><span class="compare-label">Typical CRMs</span>Before/after photos, damage records, and invoices scattered or missing</span>
+          </div>
+          <div class="compare-cell rinse">
+            <span class="mark" aria-hidden="true">✓</span>
+            <span><span class="compare-label">Rinse</span>Vehicle records, pre-existing damage docs, and a client portal in one place</span>
+          </div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-cell other">
+            <span class="mark" aria-hidden="true">×</span>
+            <span><span class="compare-label">Typical CRMs</span>Feature requests disappear into a big company's backlog</span>
+          </div>
+          <div class="compare-cell rinse">
+            <span class="mark" aria-hidden="true">✓</span>
+            <span><span class="compare-label">Rinse</span>Built and run by a mobile detailer — your feedback goes to the person shipping the product</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 6. Founding offer -->
     <section class="founding" aria-labelledby="founding-heading">
       <div class="founding-inner">
         <span class="founding-chip">Founding Detailer program</span>
-        <h2 id="founding-heading">Pro free for life. For the first 20.</h2>
-        <p class="founding-body">Founding members get Pro free forever — booking site, client portal, full job tracking, and profit analytics.</p>
+        <h2 id="founding-heading">Pro free for life. Then $10 off forever.</h2>
+        <p class="founding-body">The first <strong>20 founding detailers</strong> get Pro free for life. The <strong>next 100</strong> lock in <strong>$10 off per month for life</strong> ($19/mo when Pro is $29). Both tiers include the full Pro plan — booking site, client portal, job tracking, invoicing, and profit analytics.</p>
         <div class="founding-exchange">
-          <strong>In exchange:</strong> Use it on real jobs, give honest feedback, and share a testimonial if you love it.
+          <strong>In exchange:</strong> Use it on real jobs, give honest feedback, and share a testimonial if you love it. As a fellow detailer, I read every note — good and bad.
         </div>
         <p class="founding-fine">Must complete at least 3 jobs in your first 30 days to keep founding status. SMS and payment processing may become paid add-ons later — core job management stays free for founding members.</p>
+      </div>
+    </section>
+
+    <!-- 6b. Built by a detailer -->
+    <section class="builder-section wide" aria-labelledby="builder-heading">
+      <p class="eyebrow">Built by a detailer</p>
+      <h2 id="builder-heading">I'm a mobile detailer too.</h2>
+      <p class="builder-intro">Rinse isn't from a big organization — it's the tool I'm building for my own business and for detailers like you. I value every person on this waitlist because <strong>you're the community I'm part of</strong>.</p>
+      <div class="builder-grid">
+        <div class="builder-card">
+          <h3>Operator-first</h3>
+          <p>Built by a mobile detailer who runs jobs in the field — not a software company guessing from the outside.</p>
+        </div>
+        <div class="builder-card">
+          <h3>Direct support</h3>
+          <p>Talk to the person building it. No ticket queue, no call center — real help when something breaks before a job.</p>
+        </div>
+        <div class="builder-card">
+          <h3>Your voice shapes the product</h3>
+          <p>Feature requests and criticism from detailers on real jobs go straight into the roadmap.</p>
+        </div>
       </div>
     </section>
 
@@ -854,7 +1374,7 @@
         <div class="who-card yes">
           <h3>Built for you if…</h3>
           <ul class="who-list">
-            <li>You're a solo mobile detailer — you go to the client</li>
+            <li>You're a mobile detailer — you go to the client</li>
             <li>You juggle bookings across texts, DMs, and calendar apps</li>
             <li>You want to know profit per job, not just what you charged</li>
             <li>You're ready to run real jobs through the app and give feedback</li>
@@ -863,7 +1383,6 @@
         <div class="who-card no">
           <h3>Not for you if…</h3>
           <ul class="who-list">
-            <li>You run a shop with multiple bays and a front desk team</li>
             <li>You need enterprise fleet contracts or dealership workflows</li>
             <li>You want a free tool with zero commitment or feedback</li>
             <li>You're looking for a consumer car-wash booking app</li>
@@ -882,7 +1401,25 @@
             What is Rinse?
           </button>
           <div class="faq-answer" hidden>
-            Rinse is a business app for solo mobile detailers — jobs, clients, invoices, online booking, and profit tracking in one place. No more stitching together texts, calendars, and spreadsheets.
+            Rinse is a business app for mobile detailers — jobs, clients, invoices, online booking, and profit tracking in one place. No more stitching together texts, calendars, and spreadsheets.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            How is Rinse different from other CRMs?
+          </button>
+          <div class="faq-answer" hidden>
+            Most CRMs are built for office sales teams or broad field-service trades — not mobile detailing. Rinse connects leads, quotes, jobs, vehicle records, damage documentation, invoicing, and a client photo portal in one workflow. You also get profit per job (not just revenue), and the product is built by a detailer who actually uses it.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            Who's behind Rinse?
+          </button>
+          <div class="faq-answer" hidden>
+            Daniel Stein — a Georgia Tech student and mobile detailer who built Rinse after years of detailing (since he was a kid) and running into the same workflow problems on real jobs. Early members get direct access to the person building and using the product.
           </div>
         </div>
 
@@ -897,10 +1434,19 @@
 
         <div class="faq-item">
           <button class="faq-question" type="button" aria-expanded="false">
+            What do the next 100 spots get?
+          </button>
+          <div class="faq-answer" hidden>
+            After the first 20 founding spots, the next 100 early members lock in $10 off Pro every month for life — $19/mo when the standard price is $29. Same full Pro features; your discounted rate never goes up.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
             When will I get access?
           </button>
           <div class="faq-answer" hidden>
-            We're onboarding in small batches so we can support every founding detailer properly. Join the waitlist and we'll email you when your batch opens — first come, first served within the 20 founding spots.
+            We're onboarding in small batches so we can support every early member properly. Join the waitlist and we'll email you when your batch opens — first come, first served across 120 early spots (20 free, then 100 discounted).
           </div>
         </div>
 
@@ -918,7 +1464,7 @@
             Will SMS or payments cost extra later?
           </button>
           <div class="faq-answer" hidden>
-            Possibly. SMS reminders and payment processing have real per-use costs, so those may become paid add-ons down the road. Your core Pro features — jobs, booking, portal, profit tracking — stay free for life as a founding member.
+            Possibly. SMS reminders and payment processing have real per-use costs, so those may become paid add-ons down the road. Core Pro features stay included for founding and early members — free for life if you're in the first 20, or at your locked-in $19/mo rate if you're in the next 100.
           </div>
         </div>
 
@@ -928,7 +1474,7 @@
     <!-- 9. Second email CTA -->
     <section class="cta-bottom" id="waitlist-bottom">
       <h2>Ready to claim your spot?</h2>
-      <p>20 founding spots. Pro free for life. Solo operators only.</p>
+      <p>First 20 free for life · next 100 get $10 off/mo for life.</p>
 
       <div class="form-wrap" id="bottom-form-wrap">
         <form id="waitlist-form-bottom" action="https://formspree.io/f/mjgqypaa" method="POST" novalidate>
@@ -954,6 +1500,30 @@
         <span class="check" aria-hidden="true">✓</span>
         <p>You're on the list.</p>
         <p class="sub">We'll email you when your batch opens.</p>
+      </div>
+    </section>
+
+    <!-- 9b. About the owner -->
+    <section class="owner-section" aria-labelledby="owner-heading">
+      <div class="owner-inner">
+        <div class="owner-photo-wrap" id="owner-photo-wrap">
+          <img
+            src="assets/owner.jpg"
+            alt="Daniel Stein, founder of Rinse"
+            width="144"
+            height="144"
+            onerror="this.parentElement.classList.add('no-photo')"
+          >
+          <div class="owner-photo-fallback" aria-hidden="true">DS</div>
+        </div>
+        <div class="owner-copy">
+          <p class="eyebrow">About the owner</p>
+          <h2 id="owner-heading">Hi, I'm Daniel — detailer first, builder second.</h2>
+          <p>I'm a student at <strong>Georgia Tech</strong> who runs mobile detailing on the side. Detailing isn't a side hustle I picked up last year — I've been doing it since I was a kid, helping my whole family keep their cars as clean as possible and making sure I did my best work on every single vehicle.</p>
+          <p>Running jobs between classes, I kept hitting the same walls: bookings in texts, profit buried in spreadsheets, photos and invoices in different places. So I built <strong>Rinse</strong> — the app I actually wanted on the driveway: one place for leads, jobs, vehicles, damage docs, invoicing, and knowing what each job was really worth.</p>
+          <p>Rinse is small on purpose. When you join early, you're not feeding a giant support queue — you're talking to the person who details cars and writes the code. That's the product I wish existed when I started.</p>
+          <p class="owner-byline">Daniel Stein · Georgia Tech · Mobile detailer &amp; founder</p>
+        </div>
       </div>
     </section>
 
@@ -1048,6 +1618,26 @@
 
       setupForm('waitlist-form', 'form-error', 'hero-form-wrap', 'success-box');
       setupForm('waitlist-form-bottom', 'form-error-bottom', 'bottom-form-wrap', 'success-box-bottom');
+
+      // Hero video — poster fallback when reduced motion or no video file
+      var heroVideo = document.getElementById('hero-demo-video');
+      var heroFallback = document.getElementById('hero-demo-fallback');
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function showHeroPoster() {
+        if (!heroVideo || !heroFallback) return;
+        heroVideo.style.display = 'none';
+        heroFallback.hidden = false;
+      }
+
+      if (heroVideo) {
+        if (prefersReduced) {
+          showHeroPoster();
+        } else {
+          heroVideo.addEventListener('error', showHeroPoster);
+          heroVideo.play().catch(showHeroPoster);
+        }
+      }
 
       // FAQ accordion
       document.querySelectorAll('.faq-item').forEach(function (item) {
